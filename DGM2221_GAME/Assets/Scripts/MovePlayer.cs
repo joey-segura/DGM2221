@@ -5,7 +5,8 @@ using UnityEngine;
 public class MovePlayer : MonoBehaviour
 {
     private float moveSpeed;
-    private float defaultSpeed = 5f, sprintSpeed = 10f;
+    public float defaultSpeed = 3f, sprintSpeed = 6f;
+    public float jumpForce = 500f;
 
     private Rigidbody rbody;
    
@@ -25,11 +26,19 @@ public class MovePlayer : MonoBehaviour
         
         rbody.MovePosition(transform.position + movement);
 
+        
+        // IF PLAYER IS NOT GROUNDED DO NOT TAKE ANY INPUT, THIS WILL CONTINUE TO LET THE PLAYER TUMBLE IN THE AIR IGNORING THIS LOOKAT FUNCTION.
+        
         if (Input.anyKey)
         {
             transform.LookAt(transform.position + new Vector3(movement.x, 0, movement.z));
         }
-        
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            rbody.AddForce(Vector3.up * jumpForce);
+            Debug.Log("Working");
+        }
        
 
         if (Input.GetKey(KeyCode.LeftShift))

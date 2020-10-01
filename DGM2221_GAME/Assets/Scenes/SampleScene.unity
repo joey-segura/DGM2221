@@ -551,6 +551,8 @@ GameObject:
   - component: {fileID: 1462802635}
   - component: {fileID: 1462802634}
   - component: {fileID: 1462802633}
+  - component: {fileID: 1462802636}
+  - component: {fileID: 1462802637}
   m_Layer: 0
   m_Name: Hammer_Head
   m_TagString: Untagged
@@ -631,6 +633,35 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1462802631}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &1462802636
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1462802631}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1462802637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1462802631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ce84fe7503391b48910f7b0572f101d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockbackStrength: 50
 --- !u!1 &1519047173
 GameObject:
   m_ObjectHideFlags: 0
@@ -951,6 +982,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 751825beb15a3f149b009db69ea455a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultSpeed: 3
+  sprintSpeed: 6
+  jumpForce: 500
 --- !u!54 &1813682929
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1011,7 +1045,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2036101310}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 9.23, z: 21.71}
+  m_LocalPosition: {x: 0, y: 8.6, z: 13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1462802632}
