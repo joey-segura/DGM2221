@@ -8,6 +8,7 @@
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
           <e p="CameraFollow.cs" t="Include" />
+          <e p="Jump.cs" t="Include" />
           <e p="Knockback.cs" t="Include" />
           <e p="MovePlayer.cs" t="Include" />
           <e p="PlayerMovement.cs" t="Include" />
