@@ -16,7 +16,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Knockback.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Jump.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CameraFollow.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../DGM2670/DGM2670/DGM2670_GAME/Assets/Scripts/RBInteractBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -63,7 +63,8 @@
       <workItem from="1601525326510" duration="1370000" />
       <workItem from="1601593716258" duration="9352000" />
       <workItem from="1601608251991" duration="128000" />
-      <workItem from="1601944290283" duration="527000" />
+      <workItem from="1601944290283" duration="1273000" />
+      <workItem from="1602116331052" duration="896000" />
     </task>
     <servers />
   </component>

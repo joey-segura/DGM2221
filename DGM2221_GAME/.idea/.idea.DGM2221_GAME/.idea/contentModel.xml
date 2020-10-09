@@ -11,7 +11,6 @@
           <e p="Jump.cs" t="Include" />
           <e p="Knockback.cs" t="Include" />
           <e p="MovePlayer.cs" t="Include" />
-          <e p="PlayerMovement.cs" t="Include" />
         </e>
       </e>
       <e p="DGM2221_GAME.sln" t="IncludeFlat" />
