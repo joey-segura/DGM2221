@@ -1,14 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Jump : MonoBehaviour
 {
-
+    public Slider healthSlider;
+    public int maxHealth = 100;
+    public int currentHealth;
+    
+    public GameObject player;
+    public Vector3 playerSpawn;
+    
     public Rigidbody rb;
 
     public GameObject groundCheck;
     
+    public GameObject bullet;
+    public Transform bulletPosition;
+    public float bulletSpeed = 2000f;
+
     private float moveSpeed;
     public float defaultSpeed = 3f, sprintSpeed = 6f;
     
@@ -22,11 +33,22 @@ public class Jump : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         groundCheck = GameObject.Find("/Player/GroundCheck");
+        player = GameObject.Find("Player");
+        playerSpawn = new Vector3(-1, 1, -6);
+        currentHealth = maxHealth;
+        healthSlider.maxValue = maxHealth;
     }
-
-
+    
     void Update()
     {
+        //DEATH
+        
+        healthSlider.value = currentHealth;
+        if (healthSlider.value <= 1f)
+        {
+            Respawn();
+        }
+        
         //WALKING
 
         rb.AddForce(Vector3.down * gravity);
@@ -54,8 +76,7 @@ public class Jump : MonoBehaviour
         {
             moveSpeed = defaultSpeed;
         }
-        
-        
+
         //JUMPING
         
         if (Input.GetKeyDown(KeyCode.Space) && jumpCount < jumpMax)
@@ -63,10 +84,45 @@ public class Jump : MonoBehaviour
             rb.velocity = (Vector3.up * jumpStrength);
             jumpCount++;
         }
+        
+        //SHOOTING
+        
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Shoot();
+        }
     }
 
-    void OnTriggerEnter()
+    void OnTriggerEnter(Collider other)
     {
         jumpCount = 0;
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.name == "Plane")
+        {
+            Respawn();
+        }
+
+        if (other.gameObject.name == "Spike")
+        {
+            Debug.Log("Hit");
+            currentHealth -= 10;
+        }
+    }
+
+    void Respawn()
+    {
+        currentHealth = maxHealth;
+        player.transform.position = playerSpawn;
+    }
+
+    void Shoot()
+    {
+        GameObject newBullet = Instantiate(bullet, bulletPosition.position, bulletPosition.rotation) as GameObject;
+        newBullet.transform.Rotate (90f, 0f, 0f);
+        newBullet.AddComponent<Rigidbody>();
+        newBullet.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed, ForceMode.Impulse);
     }
 }
